@@ -23,7 +23,11 @@ interface Props extends Pick<PanGestureHandlerProps, 'simultaneousHandlers'> {
 }
 
 const TrashIconHolder = () => {
-  return <Text style={{ color: 'white' }}>🗑</Text>
+  return (
+    <TouchableOpacity>
+      <Text style={{ color: 'white' }}>Delete</Text>
+    </TouchableOpacity>
+  )
 }
 
 const TaskItem = (props: Props) => {
