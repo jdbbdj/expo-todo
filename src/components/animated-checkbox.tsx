@@ -21,13 +21,13 @@ const AnimatedPath = Animated.createAnimatedComponent(Path)
 
 interface Props {
   checked?: boolean
+  highlightColor: string
+  checkmarkColor: string
+  boxOutlineColor: string
 }
 
 const AnimatedCheckbox = (props: Props) => {
-  const { checked } = props
-  const checkmarkColor = '#000000'
-  const highlightColor = '#ff0000'
-  const boxOutlineColor = '#000000'
+  const { checked, checkmarkColor, highlightColor, boxOutlineColor } = props
 
   const progress = useSharedValue(0)
 
@@ -64,7 +64,7 @@ const AnimatedCheckbox = (props: Props) => {
         d={outlineBoxPath}
         strokeWidth={7}
         strokeLinejoin="round"
-        strokeLineCap="round"
+        strokeLinecap="round"
         animatedProps={animatedBoxProps}
       />
       <AnimatedStroke
