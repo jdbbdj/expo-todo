@@ -1,16 +1,8 @@
 import React, { useCallback, useState } from 'react'
 import { Pressable } from 'react-native'
-import {
-  Text,
-  Box,
-  Center,
-  VStack,
-  Fab,
-  Icon,
-  useColorModeValue
-} from 'native-base'
+import { Text, Center, VStack, Fab, Icon, useColorModeValue } from 'native-base'
 import ThemeToggle from '../components/theme-toggle'
-import TaskItem from '../components/task-item'
+import AnimatedColorBox from '../components/animated-colorbox'
 import TaskList from '../components/task-list'
 import shortid from 'shortid'
 
@@ -93,10 +85,10 @@ export default function MainScreen() {
   }, [])
 
   return (
-    <Center
-      _dark={{ bg: 'blueGray.900' }}
-      _light={{ bg: 'blueGray.50' }}
+    <AnimatedColorBox
       flex={1}
+      bg={useColorModeValue('warmGray.50', 'primary.900')}
+      w="full"
     >
       <VStack space={5} alignItems="center" w="full">
         <TaskList
@@ -130,6 +122,6 @@ export default function MainScreen() {
           setEditingItemId(id)
         }}
       />
-    </Center>
+    </AnimatedColorBox>
   )
 }
