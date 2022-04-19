@@ -4,6 +4,8 @@ import { Text, Center, VStack, Fab, Icon, useColorModeValue } from 'native-base'
 import ThemeToggle from '../components/theme-toggle'
 import AnimatedColorBox from '../components/animated-colorbox'
 import TaskList from '../components/task-list'
+import MastHead from '../components/masthead'
+import NavBar from '../components/navbar'
 import shortid from 'shortid'
 
 const initialData = [
@@ -90,7 +92,10 @@ export default function MainScreen() {
       bg={useColorModeValue('warmGray.50', 'primary.900')}
       w="full"
     >
-      <VStack space={5} alignItems="center" w="full">
+      <MastHead title="Todo List" image={require('../assets/masthead.png')}>
+        <NavBar />
+      </MastHead>
+      <VStack space={5} alignItems="center" w="full" marginTop={5}>
         <TaskList
           data={data}
           onToggleItem={handleToggleTaskItem}
