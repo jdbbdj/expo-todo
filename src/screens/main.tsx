@@ -1,7 +1,12 @@
 import React, { useCallback, useState } from 'react'
-import { Pressable } from 'react-native'
-import { Text, Center, VStack, Fab, Icon, useColorModeValue } from 'native-base'
-import ThemeToggle from '../components/theme-toggle'
+import {
+  Text,
+  ScrollView,
+  VStack,
+  Fab,
+  Icon,
+  useColorModeValue
+} from 'native-base'
 import AnimatedColorBox from '../components/animated-colorbox'
 import TaskList from '../components/task-list'
 import MastHead from '../components/masthead'
@@ -92,26 +97,37 @@ export default function MainScreen() {
       bg={useColorModeValue('warmGray.50', 'primary.900')}
       w="full"
     >
-      <MastHead title="Todo List" image={require('../assets/masthead.png')}>
+      <MastHead
+        title="What's up, Please be productive!"
+        image={require('../assets/masthead.png')}
+      >
         <NavBar />
       </MastHead>
-      <VStack space={5} alignItems="center" w="full" marginTop={5}>
+
+      <VStack
+        flex={1}
+        space={1}
+        bg={useColorModeValue('warmGray.50', 'primary.900')}
+        mt="-20px"
+        borderTopLeftRadius="20px"
+        borderTopRightRadius="20px"
+        pt="20px"
+      >
         <TaskList
           data={data}
           onToggleItem={handleToggleTaskItem}
           onChangeSubject={handleChangeTaskItemSubject}
           onFinishEditing={handleFinishEditingTaskItem}
-          onRemoveItem={handleRemoveItem}
           onPressLabel={handlePressTaskItemLabel}
+          onRemoveItem={handleRemoveItem}
           editingItemId={editingItemId}
         />
-        <ThemeToggle />
       </VStack>
       <Fab
         position="absolute"
         renderInPortal={false}
         size="sm"
-        icon={<Icon as={<PlusIcon />} />}
+        icon={<Icon color="white" as={<PlusIcon />} size="sm" />}
         colorScheme={useColorModeValue('blue', 'darkBlue')}
         bg={useColorModeValue('blue.500', 'blue.400')}
         onPress={() => {

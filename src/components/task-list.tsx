@@ -113,10 +113,10 @@ const TaskList = (props: TaskListProps) => {
       <AnimatePresence>
         {data.map(item => (
           <AnimatedTaskItem
+            key={item.id}
             data={item}
             simultaneousHandlers={refScrollView}
             isEditing={item.id === editingItemId}
-            key={item.id}
             onToggleItem={onToggleItem}
             onChangeSubject={onChangeSubject}
             onFinishEditing={onFinishEditing}
